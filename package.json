@@ -21,6 +21,7 @@
     "morgan": "^1.7.0",
     "pg": "^6.1.2",
     "socket.io": "^1.7.2",
+    "tone": "^0.9.0",
     "ui-router": "^1.0.0-alpha.3"
   },
   "devDependencies": {
