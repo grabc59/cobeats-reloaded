@@ -1,8 +1,4 @@
-<!-- <h1>chat component template</h1> -->
-<!-- <hr> -->
-<!--<div class= "chat_container">-->
 <div class="row" id="messageArea">
-    <h1>message area row</h1>
     <div class="row">
         <div class="well online_users">
             <h3>Online Users</h3>
@@ -13,7 +9,6 @@
         </div>
     </div>
     <div class="row">
-        <h1>message History</h1>
         <div id="messageHistory">
             <div ng-init="$ctrl.messageTimeout()" ng-repeat="message in $ctrl.chatMessages | orderBy: message.created_at" class="well">
                 <strong>{{message.username}} :</strong> {{message.content}}
@@ -31,10 +26,4 @@
             </div>
         </form>
     </div>
-    <!-- </div> -->
-
-    <!-- </div> -->
-    <!--<div class="col-md-1">
-        </div>-->
 </div>
-<!--</  div>-->
