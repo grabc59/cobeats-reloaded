@@ -9,32 +9,31 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- TONE.JS -->
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./style/examples.css">
+    <!-- JS -->
     <script type="text/javascript" src="./build/Tone.js"></script>
-  	<script type="text/javascript" src="./scripts/jquery.min.js"></script>
-  	<script type="text/javascript" src="./scripts/draggabilly.js" defer></script>
-  	<script type="text/javascript" src="https://tonejs.github.io/Logo/build/Logo.js"></script>
-  	<script type="text/javascript" src="./scripts/StartAudioContext.js"></script>
-  	<script type="text/javascript" src="./scripts/Interface.js"></script>
-  	<script type="text/javascript" src="./scripts/nexusUI.js"></script>
-
+    <script type="text/javascript" src="./scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="./scripts/draggabilly.js" defer></script>
+    <script type="text/javascript" src="https://tonejs.github.io/Logo/build/Logo.js"></script>
+    <script type="text/javascript" src="./scripts/StartAudioContext.js"></script>
+    <script type="text/javascript" src="./scripts/Interface.js"></script>
+    <script type="text/javascript" src="./scripts/nexusUI.js"></script>
 
     <!-- BOOTSTRAP -->
-        <!-- BASE SWATCH -->
+    <!-- BASE SWATCH -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Custom css -->
-
-        <link rel="stylesheet" href="/css/styles.css">
-        <link rel="stylesheet" href="/css/chat-styles.css">
-        <link rel="stylesheet" href="/css/main-styles.css">
-        <link rel="stylesheet" href="/css/easel-styles.css">
-        <!-- TONEJS CSS -->
-        <link rel="stylesheet" type="text/css" href="./style/examples.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/chat-styles.css">
+    <link rel="stylesheet" href="/css/main-styles.css">
+    <link rel="stylesheet" href="/css/easel-styles.css">
 
     <!-- Google Fonts -->
-        <!-- BASE -->
+    <!-- BASE -->
     <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">-->
-        <!-- PERMANENT MARKER -->
+    <!-- PERMANENT MARKER -->
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 
 
@@ -42,97 +41,94 @@
 
 <body>
     <style type="text/css">
-		canvas {
-			margin-top: 3px;
-		}
-	</style>
+        canvas {
+            margin-top: 3px;
+        }
+    </style>
+    <div class="container">
     <header>
-        <!-- nav-wrapper -->
-         <nav role="navigation" id="nav-header">
-            <div class="nav-wrapper navContainer">
-                <a id="mainLogo" ui-sref="splash" class="brand-logo"><img src="img/Logo_concept.png" alt="cobeats" width="90px" height="90px" class="-small">
-                <div class="brand">
-                  <h1 class="hero">   COBEATS</h1></a>
-
+            <!-- nav-wrapper -->
+            <div class="row">
+                <div class="col-md-12">
+                    <nav role="navigation" id="nav-header">
+                        <div class="nav-wrapper navContainer">
+                            <a id="mainLogo" ui-sref="splash" class="brand-logo">
+                              <img src="img/Logo_concept.png" alt="cobeats" width="90px" height="90px" class="-small">
+                              <div class="brand">
+                                  <h1 class="hero">COBEATS</h1>
+                              </div>
+                            </a>
+                        </div>
+                    </nav>
                 </div>
             </div>
-         </nav>
     </header>
-    <!-- main app -->
-
-    <!--<ui-view></ui-view>-->
-    <div id="Content">
-		<div id="Title">Tone.Transport</div>
-		<div id="Explanation">
-			<a href="https://tonejs.github.io/docs/#Transport">Tone.Transport</a>
-			is the application-wide timekeeper. It's clock source enables sample-accurate scheduling as well as tempo-curves and automation. This example uses Tone.Sequence to invoke a callback every 16th note.
-		</div>
-		<canvas nx="matrix"></canvas>
-	</div>
+    <ui-view></ui-view>
+  </div>
     <script type="text/javascript">
-		//setup a polyphonic sampler
-		var keys = new Tone.MultiPlayer({
-			urls : {
-				"A" : "./audio/casio/A1.mp3",
-				"C#" : "./audio/casio/Cs2.mp3",
-				"E" : "./audio/casio/E2.mp3",
-				"F#" : "./audio/casio/Fs2.mp3",
-			},
-			volume : -10,
-			fadeOut : 0.1,
-		}).toMaster();
-		//the notes
-		var noteNames = ["F#", "E", "C#", "A"];
-		var loop = new Tone.Sequence(function(time, col){
-			var column = matrix1.matrix[col];
-			for (var i = 0; i < 4; i++){
-				if (column[i] === 1){
-					//slightly randomized velocities
-					var vel = Math.random() * 0.5 + 0.5;
-					keys.start(noteNames[i], time, 0, "32n", 0, vel);
-				}
-			}
-		}, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
-		Tone.Transport.start();
-	</script>
+        //setup a polyphonic sampler
+        var keys = new Tone.MultiPlayer({
+            urls: {
+                "A": "./audio/casio/A1.mp3",
+                "C#": "./audio/casio/Cs2.mp3",
+                "E": "./audio/casio/E2.mp3",
+                "F#": "./audio/casio/Fs2.mp3",
+            },
+            volume: -10,
+            fadeOut: 0.1,
+        }).toMaster();
+        //the notes
+        var noteNames = ["F#", "E", "C#", "A"];
+        var loop = new Tone.Sequence(function(time, col) {
+            var column = matrix1.matrix[col];
+            for (var i = 0; i < 4; i++) {
+                if (column[i] === 1) {
+                    //slightly randomized velocities
+                    var vel = Math.random() * 0.5 + 0.5;
+                    keys.start(noteNames[i], time, 0, "32n", 0, vel);
+                }
+            }
+        }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
+        Tone.Transport.start();
+    </script>
     <script type="text/javascript">
-		nx.onload = function(){
-			nx.colorize("#f5871f");
+        nx.onload = function() {
+            nx.colorize("#f5871f");
 
-			matrix1.col = 16;
-			matrix1.init();
-			matrix1.resize($("#Content").width(), 250);
-			matrix1.draw();
-		}
-		$(function(){
-			Interface.Slider({
-				name : "BPM",
-				min : 80,
-				max : 200,
-				value : Tone.Transport.bpm.value,
-				drag : function(val){
-					Tone.Transport.bpm.value = val;
-				}
-			});
-			Interface.Button({
-				text : "Start",
-				activeText : "Stop",
-				type : "toggle",
-				key : 32, //spacebar
-				start : function(){
-					loop.start();
-				},
-				end : function(){
-					loop.stop();
-				},
-			});
-			Interface.Loader();
-			$(window).on("resize", function(){
-				matrix1.resize($("#Content").width(), 250);
-				matrix1.draw();
-			});
-		});
-	</script>
+            matrix1.col = 16;
+            matrix1.init();
+            matrix1.resize($("#Content").width(), 250);
+            matrix1.draw();
+        }
+        $(function() {
+            Interface.Slider({
+                name: "BPM",
+                min: 80,
+                max: 200,
+                value: Tone.Transport.bpm.value,
+                drag: function(val) {
+                    Tone.Transport.bpm.value = val;
+                }
+            });
+            Interface.Button({
+                text: "Start",
+                activeText: "Stop",
+                type: "toggle",
+                key: 32, //spacebar
+                start: function() {
+                    loop.start();
+                },
+                end: function() {
+                    loop.stop();
+                },
+            });
+            Interface.Loader();
+            $(window).on("resize", function() {
+                matrix1.resize($("#Content").width(), 250);
+                matrix1.draw();
+            });
+        });
+    </script>
     <!-- ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 
@@ -168,16 +164,16 @@
     <!-- CHAT -->
     <script type="text/javascript" src="/js/main/chat/chat.component.js"></script>
     <!-- SEQUENCER COMPONENT -->
-    <script type="text/javascript" src="/js/sequencer/sequencer.component.js"></script>
+    <script type="text/javascript" src="/js/main/tone-sequencer/tone-sequencer.component.js"></script>
     <!-- EASEL COMPONENT -->
     <script type="text/javascript" src="/js/main/easel/easel.component.js"></script>
 
     <!-- SOCKETS -->
     <!-- NPM MODULE -->
     <script src="/socket.io/socket.io.js"></script>
-      <!-- CLIENT JS -->
+    <!-- CLIENT JS -->
     <!--<script src="/js/chat-script.js"></script>-->
-      <!-- SOCKET SERVICE -->
+    <!-- SOCKET SERVICE -->
     <script src="/js/socket.service.js"></script>
 
 </body>
