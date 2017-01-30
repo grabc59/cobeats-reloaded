@@ -104,29 +104,30 @@
         //     matrix1.draw();
         // }
         $(function() {
-            console.log("interface loader function initialized")
-            Interface.Slider({
-                name: "BPM",
-                min: 80,
-                max: 200,
-                value: Tone.Transport.bpm.value,
-                drag: function(val) {
-                    Tone.Transport.bpm.value = val;
-                }
-            });
-            Interface.Button({
-                text: "Start",
-                activeText: "Stop",
-                type: "toggle",
-                key: 32, //spacebar
-                start: function() {
-                    loop.start();
-                },
-                end: function() {
-                    loop.stop();
-                },
-            });
+            // console.log("interface loader function initialized")
             Interface.Loader();
+
+            // Interface.Slider({
+            //     name: "BPM",
+            //     min: 80,
+            //     max: 200,
+            //     value: Tone.Transport.bpm.value,
+            //     drag: function(val) {
+            //         Tone.Transport.bpm.value = val;
+            //     }
+            // });
+            // Interface.Button({
+            //     text: "Start",
+            //     activeText: "Stop",
+            //     type: "toggle",
+            //     key: 32, //spacebar
+            //     start: function() {
+            //         loop.start();
+            //     },
+            //     end: function() {
+            //         loop.stop();
+            //     },
+            // });
             $(window).on("resize", function() {
                 matrix1.resize($("#Content").width(), 250);
                 matrix1.draw();

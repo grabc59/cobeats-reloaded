@@ -284,7 +284,7 @@ manager.prototype.transmit = function(data, passive) {
 
 **/
 manager.prototype.colorize = function(aspect, newCol) {
-
+  // console.log("colorize")
   if (!newCol) {
     // just sending in a color value colorizes the accent
     newCol = aspect;

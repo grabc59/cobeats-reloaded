@@ -26,18 +26,18 @@
     //////////////////////////////////
     function postLink() {
       console.log("post link fired");
-      try {
-        WebFont.load({
-          google: {
-            families: ['Open Sans']
-          }
-        });
-      } catch(e) {
-        console.log("font not loaded")
-      }
+      // try {
+      //   WebFont.load({
+      //     google: {
+      //       families: ['Open Sans']
+      //     }
+      //   });
+      // } catch(e) {
+      //   console.log("font not loaded")
+      // }
 
       nx.addStylesheet();
-      console.log('window onload, this is where nx starts its functions')
+      // console.log('window onload, this is where nx starts its functions')
       // get all canvases on the page and add them to the manager
       var allcanvi = document.getElementsByTagName("canvas");
       console.log(allcanvi);
@@ -109,6 +109,28 @@
       matrix1.init();
       matrix1.resize($("#Content").width(), 250);
       matrix1.draw();
+
+      Interface.Slider({
+          name: "BPM",
+          min: 80,
+          max: 200,
+          value: Tone.Transport.bpm.value,
+          drag: function(val) {
+              Tone.Transport.bpm.value = val;
+          }
+      });
+       Interface.Button({
+          text: "Start",
+          activeText: "Stop",
+          type: "toggle",
+          key: 32, //spacebar
+          start: function() {
+              loop.start();
+          },
+          end: function() {
+              loop.stop();
+          },
+      });
     }
   }
     
