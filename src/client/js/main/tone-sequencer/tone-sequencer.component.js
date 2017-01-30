@@ -1,7 +1,7 @@
 ( function() {
   'use strict';
   angular.module( 'app' )
-    .component( 'tone-sequencer', {
+    .component( 'toneSequencer', {
       templateUrl: "js/main/tone-sequencer/tone-sequencer.template.html",
       controller: controller
     });
