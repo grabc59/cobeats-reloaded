@@ -12,7 +12,7 @@
 
     function onInit() {
       console.log("initialize tone sequencer")
-      // Tone.Transport.start();
+      Tone.Transport.start();
     }
   }
     
