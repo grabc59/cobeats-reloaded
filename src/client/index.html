@@ -94,40 +94,8 @@
     Tone.Transport.start();
     </script>
     <script type="text/javascript">
-        // nx.onload = function() {
-        //     console.log('nx onload fired')
-        //     nx.colorize("#f5871f");
-
-        //     matrix1.col = 16;
-        //     matrix1.init();
-        //     matrix1.resize($("#Content").width(), 250);
-        //     matrix1.draw();
-        // }
         $(function() {
-            // console.log("interface loader function initialized")
             Interface.Loader();
-
-            // Interface.Slider({
-            //     name: "BPM",
-            //     min: 80,
-            //     max: 200,
-            //     value: Tone.Transport.bpm.value,
-            //     drag: function(val) {
-            //         Tone.Transport.bpm.value = val;
-            //     }
-            // });
-            // Interface.Button({
-            //     text: "Start",
-            //     activeText: "Stop",
-            //     type: "toggle",
-            //     key: 32, //spacebar
-            //     start: function() {
-            //         loop.start();
-            //     },
-            //     end: function() {
-            //         loop.stop();
-            //     },
-            // });
             $(window).on("resize", function() {
                 matrix1.resize($("#Content").width(), 250);
                 matrix1.draw();
