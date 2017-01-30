@@ -46,8 +46,8 @@
 
       matrix1.col = 16;
       matrix1.init();
-      matrix1.resize($("#Content").width(), 250);
       matrix1.draw();
+      matrix1.resize($("#Content").width(), 250);
 
       Interface.Slider({
           name: "BPM",
