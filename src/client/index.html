@@ -45,7 +45,7 @@
             margin-top: 3px;
         }
     </style>
-    <div class="container">
+    
     <header>
             <!-- nav-wrapper -->
             <div class="row">
@@ -63,8 +63,9 @@
                 </div>
             </div>
     </header>
-    <ui-view></ui-view>
-  </div>
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
     <script type="text/javascript">
         //setup a polyphonic sampler
         var keys = new Tone.MultiPlayer({
@@ -89,7 +90,7 @@
                 }
             }
         }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
-        Tone.Transport.start();
+        
     </script>
     <script type="text/javascript">
         nx.onload = function() {
