@@ -45,7 +45,7 @@
             margin-top: 3px;
         }
     </style>
-    
+
     <header>
             <!-- nav-wrapper -->
             <div class="row">
@@ -90,18 +90,21 @@
                 }
             }
         }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
-        
+
+    Tone.Transport.start();
     </script>
     <script type="text/javascript">
-        nx.onload = function() {
-            nx.colorize("#f5871f");
+        // nx.onload = function() {
+        //     console.log('nx onload fired')
+        //     nx.colorize("#f5871f");
 
-            matrix1.col = 16;
-            matrix1.init();
-            matrix1.resize($("#Content").width(), 250);
-            matrix1.draw();
-        }
+        //     matrix1.col = 16;
+        //     matrix1.init();
+        //     matrix1.resize($("#Content").width(), 250);
+        //     matrix1.draw();
+        // }
         $(function() {
+            console.log("interface loader function initialized")
             Interface.Slider({
                 name: "BPM",
                 min: 80,
